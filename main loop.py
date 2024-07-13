@@ -4,9 +4,10 @@ from rectangle import Rectangle
 #the rectangles position in the middle
 x = Rectangle((width/5,height/15),(width/2,height/2),(250,0,0),False)
 joysticks = []
+x.set_rotation(0.1)
 
 while True:
-    clock.tick(30)
+    #clock.tick(30)
     #event handler(button):
     mous_pos = pygame.mouse.get_pos()
     if x.get_point_colide(mous_pos):
@@ -41,8 +42,7 @@ while True:
         print("x")
         x0,y0 = x.get_pos()
         x1,y1 = mous_pos
-        #<math.atan2(y1-y0,x1-x0)-(math.pi/2)
-        x.set_rotation(1)
+        #math.atan2(y1-y0,x1-x0)-(math.pi/2)
 
 
     #screen things and draw the button:
