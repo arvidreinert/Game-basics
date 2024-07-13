@@ -55,6 +55,12 @@ class Rectangle():
             self.rect = pygame.transform.rotate(self.rect, rot)
         else:
             self.image = pygame.transform.rotate(self.image, rot)
+    
+    def get_pos(self):
+        if self.image == False:
+            return self.rect_rect.center
+        else:
+            return self.image_rect.center
 
     def get_point_colide(self,point):
         if self.image != False:
