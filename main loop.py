@@ -2,9 +2,9 @@
 from setup import *
 from rectangle import Rectangle
 #the rectangles position in the middle
-x = Rectangle((width/5,height/15),(width/2,height/2),(250,0,0),False)
+x = Rectangle((width/5,height/15),(width/2,height/2),(250,0,0),"test.webp")
 joysticks = []
-x.set_rotation(0.1)
+x.set_rotation(10)
 
 while True:
     #clock.tick(30)
@@ -38,11 +38,12 @@ while True:
         if event.type == pygame.JOYDEVICEREMOVED:
             del joysticks[0]
     # here the controller input is used:
-    if joysticks[0].get_button(3) == 1:
-        print("x")
-        x0,y0 = x.get_pos()
-        x1,y1 = mous_pos
-        #math.atan2(y1-y0,x1-x0)-(math.pi/2)
+    if len(joysticks) >= 1:
+        if joysticks[0].get_button(3) == 1:
+            print("x")
+            x0,y0 = x.get_pos()
+            x1,y1 = mous_pos
+            #math.atan2(y1-y0,x1-x0)-(math.pi/2)
 
 
     #screen things and draw the button:

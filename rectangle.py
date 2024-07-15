@@ -53,8 +53,10 @@ class Rectangle():
     def set_rotation(self, rot):
         if self.image == False:
             self.rect = pygame.transform.rotate(self.rect, rot)
+            self.rect_rect = self.rect.get_rect(center = self.rect_rect.center)
         else:
-            self.image = pygame.transform.rotate(self.image, rot)
+           self.image = pygame.transform.rotate(self.image, rot)
+           self.image_rect = self.image.get_rect(center = self.image_rect.center)
     
     def get_pos(self):
         if self.image == False:
