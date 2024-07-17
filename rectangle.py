@@ -80,9 +80,6 @@ class Rectangle():
         
     def get_colliding_with(self,colrect):
         if self.image == False:
-            x = self.rect_rect.colliderect(colrect)
-            return x
+            return self.rect_rect.colliderect(colrect.rect_rect if not colrect.image else colrect.image_rect)
         else:
-            x = self.image_rect.colliderect(colrect)
-            x = self.image_rect.collidelist()
-            return x
+            return self.image_rect.colliderect(colrect.image_rect if not colrect.image else colrect.image_rect)

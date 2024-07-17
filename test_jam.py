@@ -7,8 +7,9 @@ while True:
     clock.tick(30)
     mous_pos = pygame.mouse.get_pos()
     rect2.rect_rect.center = mous_pos
-    print(mous_pos,rect2.rect_rect.center)
     print(rect2.get_colliding_with(button1))
+    if rect2.get_colliding_with(button1):
+        print("booooooooooooooooom")
     if button1.get_point_colide(mous_pos):
         button1.set_transparency(100)
     else:
