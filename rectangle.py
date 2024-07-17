@@ -38,7 +38,15 @@ class Rectangle():
 
     def set_transparency(self, transparency):
         self.transparency = transparency
-
+    def set_position(self,xc,yc):
+        print(xc,yc)
+        if self.image == False:
+            self.rect_rect.centerx = xc
+            self.rect_rect.centery = yc
+        else:
+            self.image_rect.centerx = xc
+            self.image_rect.centery = yc
+    
     def change_position(self, xc, yc):
         if self.image == False:
             self.rect_rect.x += xc
@@ -69,3 +77,12 @@ class Rectangle():
             return self.image_rect.collidepoint(point)
         else:
             return self.rect_rect.collidepoint(point)
+        
+    def get_colliding_with(self,colrect):
+        if self.image == False:
+            x = self.rect_rect.colliderect(colrect)
+            return x
+        else:
+            x = self.image_rect.colliderect(colrect)
+            x = self.image_rect.collidelist()
+            return x
