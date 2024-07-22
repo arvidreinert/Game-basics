@@ -3,6 +3,25 @@ from setup import *
 from rectangle import Rectangle
 #the rectangles position in the middle
 x = Rectangle((width/5,height/15),(width/2,height/2),(250,0,0),"test.webp")
+unloaded = ["button.png","test.webp"]
+x_costums = x.load_costums(unloaded)
+x_costum = 0
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if x_costum == 0:
+                x_costum += 1
+            elif x_costum == 1:
+                x_costum = 0
+            x.set_image(x_costums[unloaded[x_costum]],True)
+    screen.fill((0,0,0))
+    x.update(screen)
+    pygame.display.update()
+
+"""
+x = Rectangle((width/5,height/15),(width/2,height/2),(250,0,0),"test.webp")
 joysticks = []
 x.set_rotation(10)
 
@@ -49,4 +68,4 @@ while True:
     #screen things and draw the button:
     screen.fill((0,0,0))
     x.update()
-    pygame.display.update()
+    pygame.display.update()"""
