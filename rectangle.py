@@ -41,11 +41,16 @@ class Rectangle():
         else:
             self.original_rect.set_alpha(transparency)
             self.rect.set_alpha(transparency)
-    def set_image(self,image):
-        self.original_image = pygame.image.load(image).convert_alpha()
-        self.original_image = pygame.transform.scale(self.original_image, self.size)
-        self.original_image.set_alpha(self.transparency)
-        self.image = self.original_image.copy()
+
+    def set_image(self,image, is_loaded=False):
+        if is_loaded == False:
+            self.original_image = pygame.image.load(image).convert_alpha()
+            self.original_image = pygame.transform.scale(self.original_image, self.size)
+            self.original_image.set_alpha(self.transparency)
+            self.image = self.original_image.copy()
+        else:
+            self.original_image = image
+            self.image = self.original_image.copy()
 
     def set_position(self, xc, yc):
         self.position = (xc, yc)
@@ -60,6 +65,16 @@ class Rectangle():
             self.image_rect.center = self.position
         else:
             self.rect_rect.center = self.position
+
+    def load_costums(self,images):
+        l_costums = {}
+        for image in images:
+            x = pygame.image.load(image).convert_alpha()
+            x = pygame.transform.scale(x, self.size)
+            x.set_alpha(self.transparency)
+            l_costums[image] = x
+        return l_costums
+
 
     def kill(self):
         self.is_updating = False
