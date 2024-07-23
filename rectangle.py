@@ -25,7 +25,8 @@ class Rectangle():
             self.image_rect = self.image.get_rect(center=position)
     
     def fill_rect_with_color(self,color):
-        self.original_rect.fill(self.color)
+        self.original_rect.fill(color)
+        self.color = color
         self.rect = self.original_rect.copy()
         
     def update(self, surface):
