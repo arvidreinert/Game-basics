@@ -23,6 +23,10 @@ class Rectangle():
             self.original_image.set_alpha(self.transparency)
             self.image = self.original_image.copy()
             self.image_rect = self.image.get_rect(center=position)
+    
+    def fill_rect_with_color(self,color):
+        self.original_rect.fill(self.color)
+        self.rect = self.original_rect.copy()
         
     def update(self, surface):
         if self.is_updating:
