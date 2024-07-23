@@ -3,21 +3,17 @@ from setup import *
 from rectangle import Rectangle
 #the rectangles position in the middle
 x = Rectangle((width/5,height/15),(width/2,height/2),(250,0,0),False)
-x_color = (250,0,0)
+x_color = (250,250,0)
+x.fill_rect_with_color(x_color)
 while True:
     x.fill_rect_with_color(x_color)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if x_color[0] <= 249:
-                x_color = (x_color+1,0,0)
-            elif x_color[0] == 250:
-                x_color = (0,0,0)
-
     screen.fill((0,0,0))
     x.update(screen)
     pygame.display.update()
+
 
 """
 x = Rectangle((width/5,height/15),(width/2,height/2),(250,0,0),"test.webp")
